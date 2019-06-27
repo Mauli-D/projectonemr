@@ -1,30 +1,29 @@
 {
-  "name": "lab2-javascript",
+  "name": "project1",
   "version": "1.0.0",
-  "description": "Lab2",
+  "description": "",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mauli-D/Lab2-JavaScript.git"
-  },
-  "author": "Maulika Desai",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Mauli-D/Lab2-JavaScript/issues"
-  },
-  "homepage": "https://github.com/Mauli-D/Lab2-JavaScript#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.0.0",
-    "express": "^4.17.1",
     "express-session": "^1.16.2",
     "mongoose": "^5.5.15",
     "pug": "^2.0.3"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mauli-D/projectonemr.git"
+  },
+  "author": "Maulika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mauli-D/projectonemr/issues"
+  },
+  "homepage": "https://github.com/Mauli-D/projectonemr#readme"
 }
