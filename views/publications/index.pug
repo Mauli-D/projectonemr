@@ -1,0 +1,29 @@
+extends ../layouts/main.pug
+
+block content
+  .container
+    header
+      h1= title
+
+    div
+      table.table.table-striped
+        thead
+          tr
+            th Name
+            th Publishing Year
+            th Actions
+        
+        tbody
+          each publication in publications
+            tr
+              td
+                a(href=`/publications/${publication.id}`)= publication.name
+              td= publication.year
+              td
+                a(href=`/publications/${publication.id}/edit`) edit
+                = " | "
+                form.destroy(action="/publications/destroy", method="POST", onsubmit='return confirm("Are you sure? You want to delete this Publication?");')
+                  input(type="hidden", name="id", value=publication.id)
+                  input(type="submit", value="delete")
+
+      a(href='/publications/new') New Publication

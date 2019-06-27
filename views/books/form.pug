@@ -1,0 +1,27 @@
+form(action=(book ? "/books/update" : "/books"), method="POST")
+  if book
+    input(type="hidden", name="id", value=book.id)
+
+  .form-group
+    label Title
+    input.form-control(name="book[title]", required, value=(book ? book.title : null))
+
+  .form-group
+    label Content
+    textarea.form-control(name="book[content]")
+      = book ? book.content : null
+
+  .form-group
+    label publication Name
+    select.form-control(name="publication[name]", required)
+      
+
+  .form-group
+    label Category
+    select.form-control(name="book[category]", required)
+      each category in ['COMIC', 'SPORT', 'TRAVEL']
+        option(value=category, selected=(book && book.category === category))
+          = category.toLowerCase()
+  
+  .form-group
+    button.btn.btn-dark(type="submit") Submit

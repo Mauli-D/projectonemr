@@ -1,0 +1,15 @@
+form(action=(publication ? "/publications/update" : "/publications"), method="POST")
+  if publication
+    input(type="hidden", name="id", value=publication.id)
+
+  .form-group
+    label Name
+    input.form-control(name="publication[name]", required, value=(publication ? publication.name : null))
+
+  .form-group
+    label Publishing Year
+    input.form-control(name="publication[year]", required, value=(publication ? publication.year : null))
+
+  
+  .form-group
+    button.btn.btn-dark(type="submit") Submit

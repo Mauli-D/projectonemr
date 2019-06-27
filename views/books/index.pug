@@ -1,0 +1,32 @@
+extends ../layouts/main.pug
+
+block content
+  .container
+    header
+      h1= title
+
+    div
+      table.table.table-striped
+        thead
+          tr
+            th Title
+            th Category
+            th Publication Name
+            th Actions
+        
+        tbody
+          each book in books
+            tr
+              td
+                a(href=`/books/${book.id}`)= book.title
+              td= book.category
+              td
+              td
+                a(href=`/books/${book.id}/edit`) edit
+                = " | "
+                form.destroy(action="/books/destroy", method="POST", onsubmit='return confirm("Are you sure? You want to delete this Book?");')
+                  input(type="hidden", name="id", value=book.id)
+                  input(type="submit", value="delete")
+
+
+      a(href='/books/new') New Book

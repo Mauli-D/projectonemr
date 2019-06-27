@@ -1,0 +1,14 @@
+extends ../layouts/main.pug
+
+block content
+  .container
+    header
+      h1= `Edit ${publication.title}`
+    
+block content
+  .container
+    header
+      h1 Edit Publication
+
+    div
+      include ./form.pug
