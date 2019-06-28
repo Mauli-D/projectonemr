@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const PublicationsController = require('../controllers/PublicationsController');
+const PublicationsController = require('../controllers/publicationsController');
 
 //Begin routes
 router.get('/', PublicationsController.index);
