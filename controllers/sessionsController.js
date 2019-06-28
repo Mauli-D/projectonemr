@@ -1,4 +1,4 @@
-const Author = require('../models/author');
+const Author = require('../Models/author');
 
 exports.login = (req, res) => {
   res.render('sessions/login', {
