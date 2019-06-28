@@ -1,4 +1,4 @@
-const Book = require('../models/book');
+const Book = require('../Models/book');
 
 exports.index = (req, res) => {
   req.isAuthenticated();
