@@ -1,4 +1,4 @@
-const Publication = require('../models/publication');
+const Publication = require('../Models/publication');
 
 exports.index = (req, res) => {
   req.isAuthenticated();
