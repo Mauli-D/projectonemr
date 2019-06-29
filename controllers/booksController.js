@@ -1,12 +1,14 @@
 const Book = require('../Models/book');
+const Publication = require('../Models/publication');
 
-exports.index = (req, res) => {
+exports.index = async (req, res) => {
   req.isAuthenticated();
 
   Book.find({
       author: req.session.userId
     })
     .populate('author')
+    .populate('publication')
     .then(books => {
       res.render('books/index', {
         books: books,
@@ -26,6 +28,7 @@ exports.comics = (req, res) => {
       author: req.session.userId
     }).comics()
     .populate('author')
+    .populate('publication')
     .then(books => {
       res.render('books/index', {
         books: books,
@@ -45,6 +48,7 @@ exports.sports = (req, res) => {
       author: req.session.userId
     }).sports()
     .populate('author')
+    .populate('publication')
     .then(books => {
       res.render('books/index', {
         books: books,
@@ -64,6 +68,7 @@ exports.travels = (req, res) => {
       author: req.session.userId
     }).travels()
     .populate('author')
+    .populate('publication')
     .then(books => {
       res.render('books/index', {
         books: books,
@@ -95,25 +100,32 @@ exports.show = (req, res) => {
     });
 };
 
-exports.new = (req, res) => {
+exports.new = async (req, res) => {
   req.isAuthenticated();
 
+  const publications = await Publication.find({});
   res.render('books/new', {
-    title: 'New Book Post'
+    title: 'New Book Post',
+    publications,
   });
 };
 
-exports.edit = (req, res) => {
+exports.edit = async (req, res) => {
   req.isAuthenticated();
-
+  const publications = await Publication.find({});
   Book.findOne({
       _id: req.params.id,
       author: req.session.userId
     })
+    .populate('publication')
+    .then((book) => {
+      return book; 
+    })
     .then(book => {
       res.render('books/edit', {
         book: book,
-        title: book.title
+        title: book.title,
+        publications
       });
     })
     .catch(err => {
@@ -139,7 +151,7 @@ exports.create = (req, res) => {
 
 exports.update = (req, res) => {
   req.isAuthenticated();
-
+  
   Book.updateOne({
       _id: req.body.id,
       author: req.session.userId

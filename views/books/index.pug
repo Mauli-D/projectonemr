@@ -21,6 +21,7 @@ block content
                 a(href=`/books/${book.id}`)= book.title
               td= book.category
               td
+                a(href=`/publications/${book.publication.id}`)= book.publication.name
               td
                 a(href=`/books/${book.id}/edit`) edit
                 = " | "

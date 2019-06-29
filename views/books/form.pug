@@ -13,8 +13,10 @@ form(action=(book ? "/books/update" : "/books"), method="POST")
 
   .form-group
     label publication Name
-    select.form-control(name="publication[name]", required)
-      
+    select.form-control(name="book[publication]", required)
+      each publication in publications
+        option(value=publication._id, selected=(book && book.publication.id === publication.id))
+          = publication.name
 
   .form-group
     label Category

@@ -13,7 +13,7 @@ const BookSchema = new mongoose.Schema({
   publication: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Publication',
-    required: false
+    required: true
   },
   category: {
     type: String,
@@ -47,5 +47,7 @@ BookSchema.query.travels = function () {
     category: 'TRAVEL'
   });
 };
+
+
 
 module.exports = mongoose.model('Book', BookSchema);
