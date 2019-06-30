@@ -1,4 +1,4 @@
-# projectonemr
+# Project Part-1
 
 Maulika Desai: I worked on two resources and associate that two resources with each other so we can select publication when we create new book in the project see publication's details from book.
 
